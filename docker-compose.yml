@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    network_mode: "host"
+  ganache:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "8545:8545"
+    network_mode: "host"
+    entrypoint:
+      - "node"
+      - "/app/ganache-core.docker.cli.js"
+      - -q

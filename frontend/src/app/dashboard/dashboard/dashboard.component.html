@@ -1,0 +1,13 @@
+<div *ngIf="(items$ | async) as items; else elseTemplate" class="content">
+  <div *ngIf="items.length > 0; else noData" class="content">
+    <app-card-token *ngFor="let item of items" isListMode="true" [item]="item" class="card card--small"></app-card-token>
+  </div>
+  <ng-template #noData>
+    <p class="full-width text-center">No ArtWork</p>
+  </ng-template>
+</div>
+<ng-template #elseTemplate>
+  <div class="mat-progress-bar--wrapper">
+    <mat-progress-bar class="full-width" mode="indeterminate"></mat-progress-bar>
+  </div>
+</ng-template>

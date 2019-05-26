@@ -1,0 +1,6 @@
+<ng-container *ngIf="item$ | async as item">
+  <div class="artwork-wrapper">
+    <app-card-token showSetPrice="true" showBuy="true" (buy)="onBuy($event)" (setPrice)="openSetPriceDialog($event)"
+      [item]="item" class="card card--big" (public)="openDialog($event)"></app-card-token>
+  </div>
+</ng-container>

@@ -1,0 +1,15 @@
+{
+  "entities": ["src/**/*.entity{.ts,.js}"],
+  "type": "mongodb",
+  "migrationsTableName": "migrations",
+  "host": "localhost",
+  "synchronize": true,
+  "useNewUrlParser": true,
+  "authSource": "admin",
+  "database": "ark",
+  "logging": true,
+  "migrations": ["src/database/migrations/*{.ts,.js}"],
+  "cli": {
+    "migrationsDir": "src/database/migrations"
+  }
+}

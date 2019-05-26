@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <a mat-raised-button [routerLink]="[ 'artworks' ]">Load Artworks</a>
+</mat-toolbar>
+<ng-container *ngIf="item$ | async as item">
+  <div class="gallery-wrapper">
+    <app-card-gallery [item]="item" showSetPrice="true" isListMode="true" showBuy="true" (buy)="onBuy($event)"
+      (setPrice)="openSetPriceDialog($event)" class="card card--big"></app-card-gallery>
+  </div>
+</ng-container>

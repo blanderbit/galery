@@ -1,0 +1,28 @@
+<mat-card class="card card--profile">
+  <form>
+    <p>
+      Logged in as
+    </p>
+    <div>
+      My username is
+      <span *ngIf="userName$ | async as userName; else noName">
+        <pre *ngIf="userName; else noName">{{ userName }}</pre>
+      </span>
+      <ng-template #noName>
+        <pre>not set.</pre>
+      </ng-template>
+      My publicAddress is
+      <pre>{{publicAddress}}</pre>
+    </div>
+    <div>
+      <mat-form-field class="full-width">
+        <input matInput name="username" [(ngModel)]="newUserName" placeholder="Enter new name" />
+      </mat-form-field>
+    </div>
+    <mat-card-actions align="end">
+      <button mat-raised-button [disabled]="!newUserName" (click)="onChangeName()">
+        Submit
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -1,0 +1,17 @@
+{
+  "name": "ark-copy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose down && docker-compose build --no-cache && docker-compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://leobaltazor@bitbucket.org/leobaltazor/ark-copy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/leobaltazor/ark-copy#readme",
+  "dependencies": {}
+}

@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Select Contract</h1>
+
+<mat-form-field class="full-width">
+  <mat-label>Select Contract</mat-label>
+  <mat-select #contract>
+    <mat-option *ngFor="let item of data.addresses" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="contract.value" cdkFocusInitial>Ok</button>
+</div>

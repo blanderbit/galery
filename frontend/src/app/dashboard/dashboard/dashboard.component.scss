@@ -1,0 +1,8 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.content {
+  @extend :host
+}

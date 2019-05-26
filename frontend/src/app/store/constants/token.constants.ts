@@ -1,0 +1,17 @@
+export enum TokenActionTypes {
+  LoadTokens = '[Token] Load Tokens',
+  AddToken = '[Token] Add Token',
+  UpsertToken = '[Token] Upsert Token',
+  AddTokens = '[Token] Add Tokens',
+  UpsertTokens = '[Token] Upsert Tokens',
+  UpdateToken = '[Token] Update Token',
+  UpdateTokens = '[Token] Update Tokens',
+  DeleteToken = '[Token] Delete Token',
+  DeleteTokens = '[Token] Delete Tokens',
+  ClearTokens = '[Token] Clear Tokens',
+  GetTokens = '[Token] GetTokens',
+  GetMyTokens = '[Token] GetMyTokens',
+  GetTokenById = '[Token] GetTokensById',
+  LoadTokenSuccess = '[Token] LoadTokenSuccess',
+  LoadTokenFailure = '[Token] LoadTokenFailure',
+}

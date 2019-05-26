@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="header">
+  <div class="header-container">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>
+      ARK Gallery
+    </h1>
+    <span class="spacer"></span>
+    <div *ngIf="(balAndAddr$ | async) as balAndAddr" class="header-adderess" [@fadeInOut]>
+      <small>
+        {{ balAndAddr.balance }} / {{balAndAddr.coinbase | slice:0:6 }}....{{balAndAddr.coinbase | slice:-4 }}
+      </small>
+    </div>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <ng-container *ngIf="(balAndAddr$ | async) as balAndAddr">
+        <div mat-menu-item>{{balAndAddr.coinbase | slice:0:12 }}....{{balAndAddr.coinbase | slice:-4 }}</div>
+        <div mat-menu-item>Balance: {{balAndAddr.balance}}</div>
+      </ng-container>
+      <button mat-menu-item routerLink="/profile">Profile</button>
+      <button mat-menu-item (click)="onLogOut()">LogOut</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="over" class="sidenav">
+    <div class="d-flex column h-100">
+      <div *ngFor="let item of sideMenu; last as last" class="sidenav-menu">
+        <a class="sidenav-menu-item" routerLinkActive="sidenav-menu-active" mat-line
+          [routerLink]="[item.link]">{{item.title}}</a>
+        <a class="sidenav-menu-sub-item" *ngFor="let subItem of item.children; last as last"
+          routerLinkActive="sidenav-menu-sub-active" [routerLink]="[subItem.link]">
+          {{subItem.title}}
+        </a>
+      </div>
+      <span class="spacer"></span>
+      <a class="sidenav-menu-logout" (click)="onLogOut()" [routerLink]="['/user/login']"
+        routerLinkActive="sidenav-menu-active">
+        Logout
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-toolbar color="primary" class="footer">
+  <div class="footer-container">
+    Footer
+  </div>
+</mat-toolbar>
